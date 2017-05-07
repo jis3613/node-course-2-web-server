@@ -4,6 +4,7 @@ const fs = require('fs');
 
  //process.env is an object that stores all of our environment variable as key value pair
 const port = process.env.PORT || 3000;
+
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials')
@@ -59,6 +60,12 @@ app.get('/about',(req,res)=>{
 
   })//render는 말그대로 view 페이지를 렌더해주는것
 });
+
+app.get('/projects',(req,res)=>{
+  res.render('projects.hbs',{
+    pageTitle: 'projects'
+  });
+})
 
 // /bad - send back json with errorMessage
 app.get('/bad',(req,res)=>{
